@@ -7,10 +7,10 @@ from matplotlib.patches import Ellipse
 from sklearn.mixture import GMM
 
 # Constant
-DATASET1 = "../dataSet/DSclustering/DS_3Clusters_999Points.txt"
-DATASET2 = "../dataSet/DSclustering/DS2_3Clusters_999Points.txt"
-DATASET3 = "../dataSet/DSclustering/DS_5Clusters_10000Points.txt"
-DATASET4 = "../dataSet/DSclustering/DS_7Clusters_100000Points.txt"
+DATASET1 = "./dataSet/DS_3Clusters_999Points.txt"
+DATASET2 = "./dataSet/DS2_3Clusters_999Points.txt"
+DATASET3 = "./dataSet/DS_5Clusters_10000Points.txt"
+DATASET4 = "./dataSet/DS_7Clusters_100000Points.txt"
 NUM_CLUSTERS = 3
 MAX_ITERATIONS = 10
 CONVERGENCE_TOLERANCE = 0.001
