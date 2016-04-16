@@ -22,6 +22,7 @@ COLORS = ['red', 'blue', 'green', 'yellow', 'gray', 'pink', 'violet', 'brown',
 def dataSet2ListPoints(dirDataSet):
     '''
     Read a txt file with a set of points and return a list of objects Point
+    :param dirDataSet: path file
     '''
     points = list()
     with open(dirDataSet, 'rt') as reader:
@@ -35,16 +36,16 @@ def getProbabilityCluster(point, cluster):
     Calculate the probability that the point belongs to the Cluster
     :param point:
     :param cluster:
-    :return: probability = prob * SUM(e ^ (-1/2 * ((x(i) - mean)^2 / std(i)^2 )) / std(i))
+    :return: probability =
+    prob * SUM(e ^ (-1/2 * ((x(i) - mean)^2 / std(i)^2 )) / std(i))
     '''
     mean = cluster.mean
     std = cluster.std
     prob = 1.0
     for i in range(point.dimension):
         prob *= (math.exp(-0.5 * (
-            math.pow((point.coordinates[i] - mean[i]), 2) / math.pow(std[i],
-                                                                     2))) /
-                 std[i])
+            math.pow((point.coordinates[i] - mean[i]), 2)
+            / math.pow(std[i], 2))) / std[i])
 
     return cluster.clusterProbability * prob
 

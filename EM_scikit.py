@@ -11,7 +11,7 @@ DATASET1 = "./dataSet/DS_3Clusters_999Points.txt"
 DATASET2 = "./dataSet/DS2_3Clusters_999Points.txt"
 DATASET3 = "./dataSet/DS_5Clusters_10000Points.txt"
 DATASET4 = "./dataSet/DS_7Clusters_100000Points.txt"
-NUM_CLUSTERS = 3
+NUM_CLUSTERS = 4
 MAX_ITERATIONS = 10
 CONVERGENCE_TOLERANCE = 0.001
 COLORS = ['red', 'blue', 'green', 'yellow', 'gray', 'pink', 'violet', 'brown',
@@ -21,6 +21,7 @@ COLORS = ['red', 'blue', 'green', 'yellow', 'gray', 'pink', 'violet', 'brown',
 def dataSet2ListPoints(dirDataSet):
     '''
     Read a txt file with a set of points and return a list of objects Point
+    :param dirDataSet:
     '''
     points = list()
     with open(dirDataSet, 'rt') as reader:
@@ -117,5 +118,5 @@ def expectationMaximization(dataSet, numClusters, tolerance, maxIterations):
 
 
 if __name__ == '__main__':
-    expectationMaximization(DATASET1, NUM_CLUSTERS, CONVERGENCE_TOLERANCE,
+    expectationMaximization(DATASET2, NUM_CLUSTERS, CONVERGENCE_TOLERANCE,
                             MAX_ITERATIONS)

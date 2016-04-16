@@ -21,8 +21,8 @@ class Cluster:
         for p in points:
             if p.dimension != self.dimension:
                 raise Exception(
-                    "Point %s has dimension %d different with %d from the rest of points") % (
-                          p, len(p), self.dimension)
+                    "Point %s has dimension %d different with %d from the rest "
+                    "of points") % (p, len(p), self.dimension)
 
         # Calculate mean, std and probability
         pointsCoordinates = [p.coordinates for p in self.points]
@@ -34,6 +34,7 @@ class Cluster:
     def updateCluster(self, points, totalPoints):
         '''
         Calculate new parameters and check if converge
+        :param totalPoints:
         :param points: list of new points
         :return: updated cluster
         '''
