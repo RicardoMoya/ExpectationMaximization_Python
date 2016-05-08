@@ -1,16 +1,16 @@
+import numpy as np
+
 # -*- coding: utf-8 -*-
 __author__ = 'RicardoMoya'
 
-import numpy as np
-
 
 class Cluster:
-    '''
+    """
     Class to represent a Cluster: set of points and their parameters (mean,
     standard desviation and probability of belonging to Cluster)
-    '''
+    """
 
-    def __init__(self, points, totalPoints):
+    def __init__(self, points, total_points):
         if len(points) == 0:
             raise Exception("Cluster cannot have 0 Points")
         else:
@@ -25,26 +25,26 @@ class Cluster:
                     "of points") % (p, len(p), self.dimension)
 
         # Calculate mean, std and probability
-        pointsCoordinates = [p.coordinates for p in self.points]
-        self.mean = np.mean(pointsCoordinates, axis=0)
+        points_coordinates = [p.coordinates for p in self.points]
+        self.mean = np.mean(points_coordinates, axis=0)
         self.std = np.array([1.0, 1.0])
-        self.clusterProbability = len(self.points) / float(totalPoints)
+        self.clusterProbability = len(self.points) / float(total_points)
         self.converge = False
 
-    def updateCluster(self, points, totalPoints):
-        '''
+    def update_cluster(self, points, total_points):
+        """
         Calculate new parameters and check if converge
-        :param totalPoints:
+        :param total_points:
         :param points: list of new points
         :return: updated cluster
-        '''
-        oldMean = self.mean
+        """
+        old_mean = self.mean
         self.points = points
-        pointsCoordinates = [p.coordinates for p in self.points]
-        self.mean = np.mean(pointsCoordinates, axis=0)
-        self.std = np.std(pointsCoordinates, axis=0, ddof=1)
-        self.clusterProbability = len(points) / float(totalPoints)
-        self.converge = np.array_equal(oldMean, self.mean)
+        points_coordinates = [p.coordinates for p in self.points]
+        self.mean = np.mean(points_coordinates, axis=0)
+        self.std = np.std(points_coordinates, axis=0, ddof=1)
+        self.clusterProbability = len(points) / float(total_points)
+        self.converge = np.array_equal(old_mean, self.mean)
 
     def __repr__(self):
         cluster = 'Mean: ' + str(self.mean) + '\nDimension: ' + str(
