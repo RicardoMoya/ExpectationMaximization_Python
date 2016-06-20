@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+__author__ = 'RicardoMoya'
+
 import random
 import math
 import numpy as np
@@ -6,14 +9,11 @@ from matplotlib.patches import Ellipse
 from Point import Point
 from Cluster import Cluster
 
-# -*- coding: utf-8 -*-
-__author__ = 'RicardoMoya'
-
 DATASET1 = "./dataSet/DS_3Clusters_999Points.txt"
 DATASET2 = "./dataSet/DS2_3Clusters_999Points.txt"
 DATASET3 = "./dataSet/DS_5Clusters_10000Points.txt"
 DATASET4 = "./dataSet/DS_7Clusters_100000Points.txt"
-NUM_CLUSTERS = 3
+NUM_CLUSTERS = 7
 ITERATIONS = 1000
 COLORS = ['red', 'blue', 'green', 'yellow', 'gray', 'pink', 'violet', 'brown',
           'cyan', 'magenta']
@@ -47,7 +47,7 @@ def get_probability_cluster(point, cluster):
             math.pow((point.coordinates[i] - mean[i]), 2) /
             math.pow(std[i], 2))) / std[i])
 
-    return cluster.clusterProbability * prob
+    return cluster.cluster_probability * prob
 
 
 def get_expecation_cluster(clusters, point):
@@ -68,7 +68,7 @@ def print_clusters_status(it_counter, clusters):
     print '\nITERATION %d' % it_counter
     for i, c in enumerate(clusters):
         print '\tCluster %d: Probability = %s; Mean = %s; Std = %s;' % (
-            i + 1, str(c.clusterProbability), str(c.mean), str(c.std))
+            i + 1, str(c.cluster_probability), str(c.mean), str(c.std))
 
 
 def print_results(clusters):
@@ -76,7 +76,7 @@ def print_results(clusters):
     for i, c in enumerate(clusters):
         print '\tCluster %d' % (i + 1)
         print '\t\tNumber Points in Cluster: %d' % len(c.points)
-        print '\t\tProbability: %s' % str(c.clusterProbability)
+        print '\t\tProbability: %s' % str(c.cluster_probability)
         print '\t\tMean: %s' % str(c.mean)
         print '\t\tStandard Desviation: %s' % str(c.std)
 
@@ -173,4 +173,4 @@ def expectation_maximization(dataset, num_clusters, iterations):
 
 
 if __name__ == '__main__':
-    expectation_maximization(DATASET1, NUM_CLUSTERS, ITERATIONS)
+    expectation_maximization(DATASET3, NUM_CLUSTERS, ITERATIONS)

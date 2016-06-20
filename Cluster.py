@@ -1,7 +1,7 @@
-import numpy as np
-
 # -*- coding: utf-8 -*-
 __author__ = 'RicardoMoya'
+
+import numpy as np
 
 
 class Cluster:
@@ -28,12 +28,12 @@ class Cluster:
         points_coordinates = [p.coordinates for p in self.points]
         self.mean = np.mean(points_coordinates, axis=0)
         self.std = np.array([1.0, 1.0])
-        self.clusterProbability = len(self.points) / float(total_points)
+        self.cluster_probability = len(self.points) / float(total_points)
         self.converge = False
 
     def update_cluster(self, points, total_points):
         """
-        Calculate new parameters and check if converge
+        Calculate new parameters and check if converge (maximization step)
         :param total_points:
         :param points: list of new points
         :return: updated cluster
@@ -43,7 +43,7 @@ class Cluster:
         points_coordinates = [p.coordinates for p in self.points]
         self.mean = np.mean(points_coordinates, axis=0)
         self.std = np.std(points_coordinates, axis=0, ddof=1)
-        self.clusterProbability = len(points) / float(total_points)
+        self.cluster_probability = len(points) / float(total_points)
         self.converge = np.array_equal(old_mean, self.mean)
 
     def __repr__(self):

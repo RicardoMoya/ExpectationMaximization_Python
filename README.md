@@ -1,15 +1,50 @@
 # Expectation-Maximization
 
-Algoritmo expectation-maximization (esperanza-maximización).
+El Expectation-maximization (EM) es un método estadístico de Clustering similar al K-means, pero con un enfoque probabilístico. Este método asume que todos los objetos (del data set) han sido generados a partir de ‘k’ distribuciones de probabilidad de las cuales desconocemos a priori sus parámetros.
+
+Para saber más sobre el K-means, ir al siguiente tutorial:
+
+http://jarroba.com/expectation-maximization-python-scikit-learn-ejemplos/
+
+## Pseudocódigo
+
+A continuación se muestra el Pseudocódigo del Expectation-maximization:
+
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/EM_pseudocodigo_jarroba.png)
+
+## Diagrama de Clases
+
+A continuación se muestra el diagrama de clases para la implementación del Expectation-maximization, en el que se ven involucradas las clases Point (Point.py) y Cluster (Cluster.py). En el script EM.py (que no es una clase aunque así se representa en el diagrama de clases) está el método Main que ejecuta el EM.
+ 
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/EM_ClassDiagram_jarroba.png)
+
+En el script EM_scikit.py se muestra una solución del EM utilizando la librería scikit-learn, por tanto no es una implementación propia (o desde cero) de este algoritmo.
+
+## Prerrequisitos
+
+El código que se encuentra en este repositorio hace uso de las librerías de numpy, matplotlib, scipy y scikit-learn. Para descargar e instalar (o actualizar a la última versión con la opción -U) estas librerías con el sistema de gestión de paquetes pip, se deben ejecutar los siguiente comandos:
+
+```ssh
+$ pip install -U numpy
+$ pip install -U matplotlib
+$ pip install -U scipy
+$ pip install -U scikit-learn
+```
 
 ## Resultados esperados de los data set
 
-1.- DS_3Clusters_999Points.txt: Para 3 Clusters y 999 puntos, sus centroides teóricos son ((2,2),(5,5),(1,7))
+El orden de los clusters no tiene porque coincidir con los propuestos, pero los centroides si que deben de tener valores muy similares a los indicados:
 
-2.- DS2_3Clusters_999Points.txt: Para 3 Clusters y 999 puntos, sus centroides teóricos son ((2,2),(2,4),(5,3))
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/05/DataSet_info_clusters_jarroba.png)
 
-3.- DS_5Clusters_10000Points.txt: Para 5 Clusters y 10000 puntos, sus centroides teóricos son ((0,0),(2,3),(4,5),(5,2),(7,5))
+### Resultados:
 
-4.- DS_7Clusters_100000Points.txt: Para 7 Clusters y 100000 puntos, sus centroides teóricos son ((-1,3),(0,0),(0,6),(2,3),(4,5),(5,2),(7,5))
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/Cluster3C.png)
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/Cluster3C2.png)
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/Cluster5C.png)
+![alt jarroba](http://jarroba.com/wp-content/uploads/2016/06/Cluster7C.png)
 
-El orden de los clusters no tiene porque coincidir con los propuestos, pero los centroides si que deben de tener valores muy similares a los indicados
+
+Para más detalles del proyecto vista la web de jarroba.com:
+
+![alt jarroba](http://jarroba.com/wp-content/themes/jarrobav6/static/img/logojarroba.png)

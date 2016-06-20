@@ -1,11 +1,11 @@
+# -*- coding: utf-8 -*-
+__author__ = 'RicardoMoya'
+
 import unittest
 import numpy as np
 import EM
 from Point import Point
 from Cluster import Cluster
-
-# -*- coding: utf-8 -*-
-__author__ = 'RicardoMoya'
 
 
 class MyTestCase(unittest.TestCase):
@@ -58,13 +58,13 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(cluster_test.converge)
         np.testing.assert_array_equal(cluster_test.mean, np.array([2, 2]))
         np.testing.assert_array_equal(cluster_test.std, np.array([1, 1]))
-        self.assertEquals(cluster_test.clusterProbability, 1)
+        self.assertEquals(cluster_test.cluster_probability, 1)
         cluster_test.update_cluster(listPoints, 4)
         self.assertEquals(cluster_test.dimension, 2)
         self.assertTrue(cluster_test.converge)
         np.testing.assert_array_equal(cluster_test.mean, np.array([2, 2]))
         self.assertEquals(cluster_test.std[0] - cluster_test.std[1], 0)
-        self.assertEquals(cluster_test.clusterProbability, 1)
+        self.assertEquals(cluster_test.cluster_probability, 1)
 
 
 if __name__ == '__main__':
